@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/06/2009 10:10:46 by Hibernate Tools 3.2.0.CR1 -->
+<hibernate-mapping>
+  <class name="gov.pr.celepar.abi.pojo.ParametroAgendaEmail" schema="public" table="tb_parametro_agenda_email">
+    <id name="codParametroAgendaEmail" type="java.lang.Integer">
+      <meta attribute="use-in-equals">true</meta>
+      <column name="cod_parametro_agenda_email"/>
+      <generator class="sequence">
+      	<param name="sequence">tb_parametro_agenda_email_cod_parametro_agenda_email_seq</param>
+      </generator>
+    </id>
+    <property name="email" type="java.lang.String">
+      <column name="email"/>
+    </property>
+    <many-to-one class="gov.pr.celepar.abi.pojo.ParametroAgenda"
+      fetch="select" name="parametroAgenda" lazy="false">
+      <column name="cod_parametro_agenda" not-null="true"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

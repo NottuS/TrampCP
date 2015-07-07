@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="gov.pr.celepar.abi.pojo.CessaoDeUso" schema="public" table="tb_cessao_de_uso">
+  <id name="codCessaoDeUso" type="java.lang.Integer">
+   <meta attribute="use-in-equals">true</meta>
+   <column name="cod_cessao_de_uso"/>
+   <generator class="sequence">
+    <param name="sequence">tb_cessao_de_uso_cod_cessao_de_uso_seq</param>
+   </generator>
+  </id>
+  <many-to-one class="gov.pr.celepar.abi.pojo.LeiBemImovel"
+   fetch="select" name="leiBemImovel">
+   <column name="cod_lei_bem_imovel"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="numeroProjetoDeLei" type="java.lang.String">
+   <column length="20" name="numero_projeto_de_lei" not-null="false"/>
+  </property>
+  <many-to-one class="gov.pr.celepar.abi.pojo.CessaoDeUso"
+   fetch="select" name="cessaoDeUsoOriginal">
+   <column name="cod_cessao_de_uso_original"/>
+  </many-to-one>
+  <many-to-one class="gov.pr.celepar.abi.pojo.Instituicao" fetch="select" name="instituicao" lazy="false">
+   <column name="cod_instituicao" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="protocolo" type="java.lang.String">
+   <column length="30" name="protocolo" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false" name="dataInicioVigencia" type="date">
+   <column name="data_inicio_vigencia" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false"
+   name="dataFinalVigenciaPrevisao" type="date">
+   <column name="data_final_vigencia_previsao" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false" name="dataFinalVigencia" type="date">
+   <column name="data_final_vigencia" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false"
+   name="motivoRevogacaoDevolucao" type="java.lang.String">
+   <column length="3000" name="motivo_revogacao_devolucao" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false" name="tsInclusao" type="timestamp">
+   <column length="8" name="ts_inclusao" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="tsAlteracao" type="timestamp">
+   <column length="8" name="ts_alteracao"/>
+  </property>
+  <property generated="never" lazy="false" name="cpfResponsavelInclusao" type="java.lang.String">
+   <column name="cpf_responsavel_inclusao" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="cpfResponsavelAlteracao" type="java.lang.String">
+   <column name="cpf_responsavel_alteracao"/>
+  </property>
+  <many-to-one class="gov.pr.celepar.abi.pojo.BemImovel" fetch="select" name="bemImovel">
+   <column name="cod_bem_imovel" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="gov.pr.celepar.abi.pojo.Orgao" fetch="select" name="orgaoCedente">
+   <column name="cod_orgao_cedente"/>
+  </many-to-one>
+  <many-to-one class="gov.pr.celepar.abi.pojo.Orgao" fetch="select" name="orgaoCessionario">
+   <column name="cod_orgao_cessionario" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="gov.pr.celepar.abi.pojo.StatusTermo" fetch="select" name="statusTermo">
+   <column name="cod_status_termo" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="dataRegistro" type="date">
+   <column name="data_registro" not-null="false"/>
+  </property>
+  <set inverse="true" name="listaAssinaturaCessaoDeUso" sort="unsorted">
+   <key>
+    <column name="cod_cessao_de_uso" not-null="true"/>
+   </key>
+   <one-to-many class="gov.pr.celepar.abi.pojo.AssinaturaCessaoDeUso"/>
+  </set>
+  <set inverse="true" name="listaItemCessaoDeUso" sort="unsorted">
+   <key>
+    <column name="cod_cessao_de_uso" not-null="true"/>
+   </key>
+   <one-to-many class="gov.pr.celepar.abi.pojo.ItemCessaoDeUso"/>
+  </set>
+ </class>
+</hibernate-mapping>

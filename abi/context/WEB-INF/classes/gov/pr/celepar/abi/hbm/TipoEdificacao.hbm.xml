@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/12/2009 11:14:20 by Hibernate Tools 3.2.0.CR1 -->
+<hibernate-mapping>
+  <class name="gov.pr.celepar.abi.pojo.TipoEdificacao" schema="public" table="tb_tipo_edificacao">
+    <id name="codTipoEdificacao" type="java.lang.Integer">
+      <meta attribute="use-in-equals">true</meta>
+      <column name="cod_tipo_edificacao"/>
+      <generator class="sequence">
+      	<param name="sequence">tb_tipo_edificacao_cod_tipo_edificacao_seq</param>
+      </generator>
+    </id>
+    <property name="descricao" type="java.lang.String">
+      <column length="60" name="descricao" not-null="true"/>
+    </property>
+    <set inverse="true" name="edificacaos">
+      <key>
+        <column name="cod_tipo_edificacao" not-null="true"/>
+      </key>
+      <one-to-many class="gov.pr.celepar.abi.pojo.Edificacao"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+    
+    	<!-- Conexão com banco via JNDI -->
+		<property name="hibernate.connection.autocommit">true</property>
+		<property name="hibernate.connection.datasource">java:jdbc/ExemploDS</property>
+		
+		<!-- Conexão para uso do JUnit -->
+		 
+<!-- 	    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property> -->
+<!-- 	    <property name="hibernate.connection.url">jdbc:postgresql://bancos.pinhao.desenvolvimento.eparana.parana:5432/pinhao?schema=exemplo</property> -->
+<!-- 	    <property name="hibernate.connection.username">sa_exemplo</property> -->
+<!-- 	    <property name="hibernate.connection.password">stranger</property> -->
+    	 
+    	 
+        <!-- properties -->
+	    <property name="show_sql">true</property>
+	    <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        
+        <!-- HBM Mapping files 
+		<mapping resource="gov/pr/celepar/framework/hbm/Matricula.hbm.xml"/>
+		<mapping resource="gov/pr/celepar/framework/hbm/Aluno.hbm.xml"/>
+		<mapping resource="gov/pr/celepar/framework/hbm/Endereco.hbm.xml"/>
+		<mapping resource="gov/pr/celepar/framework/hbm/Serie.hbm.xml"/>
+		<mapping resource="gov/pr/celepar/framework/hbm/Escola.hbm.xml"/>
+		-->
+		<!-- Annotations Mapping -->
+		<mapping class="gov.pr.celepar.framework.pojo.Matricula"/>
+		<mapping class="gov.pr.celepar.framework.pojo.Aluno"/>
+		<mapping class="gov.pr.celepar.framework.pojo.Endereco"/>
+		<mapping class="gov.pr.celepar.framework.pojo.Serie"/>
+		<mapping class="gov.pr.celepar.framework.pojo.Escola"/>
+		
+    </session-factory>
+
+</hibernate-configuration>

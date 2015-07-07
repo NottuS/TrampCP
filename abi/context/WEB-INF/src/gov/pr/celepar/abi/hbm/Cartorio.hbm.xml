@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/12/2009 11:14:20 by Hibernate Tools 3.2.0.CR1 -->
+<hibernate-mapping>
+  <class name="gov.pr.celepar.abi.pojo.Cartorio" schema="public" table="tb_cartorio">
+    <id name="codCartorio" type="java.lang.Integer">
+      <meta attribute="use-in-equals">true</meta>
+      <column name="cod_cartorio"/>
+      <generator class="sequence">
+      	<param name="sequence">tb_cartorio_cod_cartorio_seq</param>
+      </generator>
+    </id>
+    <property name="descricao" type="java.lang.String">
+      <column length="255" name="descricao" not-null="true"/>
+    </property>
+    <property name="cep" type="java.lang.String">
+      <column length="8" name="cep" sql-type="char(8)"/>
+    </property>
+    <property name="uf" type="java.lang.String">
+      <column length="2" name="uf" sql-type="char(2)" not-null="true"/>
+    </property>
+    <property name="municipio" type="java.lang.String">
+      <column length="80" name="municipio" not-null="true"/>
+    </property>
+    <property name="codMunicipio" type="java.lang.Integer">
+      <column name="cod_municipio" not-null="true"/>
+    </property>
+    <property name="logradouro" type="java.lang.String">
+      <column length="100" name="logradouro"/>
+    </property>
+    <property name="numero" type="java.lang.String">
+      <column length="15" name="numero"/>
+    </property>
+    <property name="bairro" type="java.lang.String">
+      <column length="50" name="bairro"/>
+    </property>
+    <property name="complemento" type="java.lang.String">
+      <column length="60" name="complemento"/>
+    </property>
+    <property name="nomeContato" type="java.lang.String">
+      <column length="100" name="nome_contato"/>
+    </property>
+    <property name="telDdd" type="java.lang.Integer">
+      <column name="tel_ddd"/>
+    </property>
+    <property name="telNumero" type="java.lang.String">
+      <column length="9" name="tel_numero"/>
+    </property>
+    <set inverse="true" name="bemImovels">
+      <key>
+        <column name="cod_cartorio" not-null="true"/>
+      </key>
+      <one-to-many class="gov.pr.celepar.abi.pojo.BemImovel"/>
+    </set>
+  </class>
+</hibernate-mapping>

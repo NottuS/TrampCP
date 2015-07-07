@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="gov.pr.celepar.abi.pojo.AssinaturaTransferencia" schema="public" table="tb_assinatura_transferencia">
+  <id name="codAssinaturaTransferencia" type="java.lang.Integer">
+   <meta attribute="use-in-equals">true</meta>
+   <column name="cod_assinatura_transferencia"/>
+   <generator class="sequence">
+    <param name="sequence">tb_assinatura_transferencia_cod_assinatura_transferencia_seq</param>
+   </generator>
+  </id>
+  <many-to-one class="gov.pr.celepar.abi.pojo.Transferencia" fetch="select" name="transferencia">
+   <column name="cod_transferencia" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="gov.pr.celepar.abi.pojo.Assinatura" fetch="select" name="assinatura">
+   <column name="cod_assinatura" not-null="true"/>
+  </many-to-one>
+  <property name="ordem" type="java.lang.Integer">
+   <column name="ordem" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>

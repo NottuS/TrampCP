@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<!-- Definicao da pagina de login -->
+    <definition name="loginDef" path="/pages/layouts/loginLayout.jsp">
+    	<put name="body" value="/pages/login/login.jsp" />
+        <put name="footer" value="/pages/login/footer.html" />
+    </definition>
+    
+    <!-- Definicao da pagina de erro de acesso (Permissoes) -->
+    <definition name="erroAcessoDef" path="/pages/layouts/erroAcessoLayout.jsp">
+    	<put name="header" value="/pages/default/header.jsp" />
+    	<put name="body" value="/pages/default/erroAcesso.jsp" />
+        <put name="footer" value="/pages/default/footer.jsp" />
+    </definition>
+    
+    <!-- Definicao do layout da aplicacao -->
+    <definition name="applicationDef" path="/pages/layouts/applicationLayout.jsp">
+      	<put name="header" value="/pages/default/header.jsp" />
+      	<put name="menu" value="/pages/default/menu.jsp" />
+      	<put name="toolbar" value="/pages/default/toolbar.jsp" />
+      	<put name="location" value="/pages/default/location.jsp" />
+    	<put name="body" value="" />
+        <put name="footer" value="/pages/default/footer.jsp" />
+    </definition>
+
+	<!--  Definicao da pagina de entrada -->
+    <definition name="entradaDef" extends="applicationDef">
+        	<put name="body" value="/pages/login/inicial.jsp" />
+    </definition>
+    
+    <!--  Definicao da pagina de inclusão de aluno -->
+    <definition name="editAlunoDef" extends="applicationDef">
+        	<put name="body" value="/pages/matricula/edit_aluno.jsp" />
+    </definition>
+    
+	<!--  Definicao da pagina de listagem de alunos -->
+    <definition name="listAlunoDef" extends="applicationDef">
+        	<put name="body" value="/pages/matricula/list_alunos.jsp" />
+    </definition>
+    
+	<!--  Definicao da pagina view do aluno -->
+    <definition name="viewAlunoDef" extends="applicationDef">
+        	<put name="body" value="/pages/matricula/view_aluno.jsp" />
+    </definition>
+   
+</tiles-definitions>

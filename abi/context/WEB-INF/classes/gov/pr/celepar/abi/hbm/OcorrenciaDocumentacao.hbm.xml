@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/12/2009 11:14:20 by Hibernate Tools 3.2.0.CR1 -->
+<hibernate-mapping>
+  <class name="gov.pr.celepar.abi.pojo.OcorrenciaDocumentacao"
+    schema="public" table="tb_ocorrencia_documentacao">
+    <id name="codOcorrenciaDocumentacao" type="java.lang.Integer">
+      <meta attribute="use-in-equals">true</meta>
+      <column name="cod_ocorrencia_documentacao"/>
+      <generator class="sequence">
+      	<param name="sequence">tb_ocorrencia_documentacao_cod_ocorrencia_documentacao_seq</param>
+      </generator>
+    </id>
+    <many-to-one class="gov.pr.celepar.abi.pojo.Documentacao"
+      fetch="select" name="documentacao">
+      <column name="cod_documentacao" not-null="false"/>
+    </many-to-one>
+    <many-to-one class="gov.pr.celepar.abi.pojo.BemImovel"
+      fetch="select" name="bemImovel">
+      <column name="cod_bem_imovel" not-null="true"/>
+    </many-to-one>
+    <property name="descricao" type="java.lang.String">
+      <column name="descricao" not-null="true"/>
+    </property>
+    <property name="tsInclusao" type="timestamp">
+      <column length="8" name="ts_inclusao" not-null="true"/>
+    </property>
+    <property name="cpfResponsavel" type="java.lang.String">
+      <column name="cpf_responsavel" not-null="true"/>
+    </property>
+    <property name="tsAtualizacao" type="timestamp">
+      <column length="8" name="ts_atualizacao" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

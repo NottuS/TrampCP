@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources>
+   <local-tx-datasource>
+	   <jndi-name>jdbc/ExemploDS</jndi-name>
+	   <connection-url>jdbc:postgresql://bancos.pinhao.desenvolvimento.eparana.parana/pinhao?schema=exemplo</connection-url>
+      <driver-class>org.postgresql.Driver</driver-class>
+      <user-name>sa_exemplo</user-name>
+      <password>stranger</password>
+      <min-pool-size>1</min-pool-size>
+      <max-pool-size>2</max-pool-size>
+      <idle-timeout-minutes>0</idle-timeout-minutes>
+      <metadata>
+         <type-mapping>PostgreSQL</type-mapping>
+      </metadata>
+   </local-tx-datasource>
+</datasources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="gov.pr.celepar.abi.pojo.UsuarioOrgao" schema="public" table="tb_usuario_orgao">
+	<composite-id>
+        <key-many-to-one name="orgao" 
+        				 class="gov.pr.celepar.abi.pojo.Orgao" 
+        				 column="cod_orgao" lazy="false"/>
+        				 
+		<key-many-to-one name="usuario" 
+        				 class="gov.pr.celepar.abi.pojo.Usuario" 
+        				 column="cod_usuario" lazy="false"/>
+	</composite-id>
+  </class>
+</hibernate-mapping>

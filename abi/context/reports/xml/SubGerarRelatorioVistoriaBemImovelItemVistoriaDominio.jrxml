@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="SubGerarRelatorioVistoriaBemImovelItemVistoriaDominio"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="268"
+		 pageHeight="842"
+		 columnWidth="268"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="0"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="AllSectionsNoDetail"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[descricao]]></fieldDescription>
+	</field>
+	<field name="indTipoParametro" class="java.lang.Integer">
+		<fieldDescription><![CDATA[itemVistoria.indTipoParametro]]></fieldDescription>
+	</field>
+	<field name="indSelecionado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[indSelecionado]]></fieldDescription>
+	</field>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="32"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="20"
+						y="0"
+						width="248"
+						height="16"
+						key="textField-1"
+						positionType="Float"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[new java.lang.Boolean($F{indTipoParametro}.equals(Integer.valueOf(2)))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{descricao}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="20"
+						y="16"
+						width="248"
+						height="16"
+						key="textField-2"
+						positionType="Float"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[new java.lang.Boolean($F{indTipoParametro}.equals(Integer.valueOf(3)))]]></printWhenExpression>
+						</reportElement>
+					<box topBorder="None" topBorderColor="#000000" leftBorder="None" leftBorderColor="#000000" leftPadding="2" rightBorder="None" rightBorderColor="#000000" bottomBorder="None" bottomBorderColor="#000000"/>
+					<textElement verticalAlignment="Top">
+						<font/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{descricao}]]></textFieldExpression>
+				</textField>
+				<rectangle>
+					<reportElement
+						x="5"
+						y="19"
+						width="10"
+						height="8"
+						key="rectangle-1"
+						positionType="Float"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[new java.lang.Boolean($F{indTipoParametro}.equals(Integer.valueOf(3)) && $F{indSelecionado}.toString().equals("false"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</rectangle>
+				<elementGroup><!--  Start: 1 !-->
+				<rectangle>
+					<reportElement
+						mode="Opaque"
+						x="5"
+						y="19"
+						width="10"
+						height="8"
+						forecolor="#000000"
+						key="rectangle-2">
+							<printWhenExpression><![CDATA[new java.lang.Boolean($F{indTipoParametro}.equals(Integer.valueOf(3)) && $F{indSelecionado}.toString().equals("true"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch" fill="Solid" />
+				</rectangle>
+				<line direction="TopDown">
+					<reportElement
+						x="5"
+						y="19"
+						width="10"
+						height="8"
+						key="line-1">
+							<printWhenExpression><![CDATA[new java.lang.Boolean($F{indTipoParametro}.equals(Integer.valueOf(3)) && $F{indSelecionado}.toString().equals("true"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				<line direction="BottomUp">
+					<reportElement
+						x="5"
+						y="19"
+						width="10"
+						height="8"
+						key="line-2">
+							<printWhenExpression><![CDATA[new java.lang.Boolean($F{indTipoParametro}.equals(Integer.valueOf(3)) && $F{indSelecionado}.toString().equals("true"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</line>
+				</elementGroup><!-- End 1 !-->
+				<ellipse>
+					<reportElement
+						x="6"
+						y="3"
+						width="8"
+						height="8"
+						key="ellipse-1"
+						positionType="Float"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[new java.lang.Boolean($F{indTipoParametro}.equals(Integer.valueOf(2)) && $F{indSelecionado}.toString().equals("false"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</ellipse>
+				<ellipse>
+					<reportElement
+						x="6"
+						y="3"
+						width="8"
+						height="8"
+						backcolor="#000000"
+						key="ellipse-2"
+						positionType="Float"
+						isRemoveLineWhenBlank="true">
+							<printWhenExpression><![CDATA[new java.lang.Boolean($F{indTipoParametro}.equals(Integer.valueOf(2)) && $F{indSelecionado}.toString().equals("true"))]]></printWhenExpression>
+						</reportElement>
+					<graphicElement stretchType="NoStretch"/>
+				</ellipse>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

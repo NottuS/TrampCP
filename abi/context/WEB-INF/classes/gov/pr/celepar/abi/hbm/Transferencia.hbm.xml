@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="gov.pr.celepar.abi.pojo.Transferencia" schema="public" table="tb_transferencia">
+  <id name="codTransferencia" type="java.lang.Integer">
+   <meta attribute="use-in-equals">true</meta>
+   <column name="cod_transferencia"/>
+   <generator class="sequence">
+    <param name="sequence">tb_transferencia_cod_transferencia_seq</param>
+   </generator>
+  </id>
+  <many-to-one class="gov.pr.celepar.abi.pojo.BemImovel" fetch="select" name="bemImovel">
+   <column name="cod_bem_imovel" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="gov.pr.celepar.abi.pojo.Orgao" fetch="select" name="orgaoCedente">
+   <column name="cod_orgao_cedente"/>
+  </many-to-one>
+  <many-to-one class="gov.pr.celepar.abi.pojo.Orgao" fetch="select" name="orgaoCessionario">
+   <column name="cod_orgao_cessionario" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="gov.pr.celepar.abi.pojo.StatusTermo" fetch="select" name="statusTermo">
+   <column name="cod_status_termo" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="gov.pr.celepar.abi.pojo.Instituicao"
+   fetch="select" name="instituicao">
+   <column name="cod_instituicao" not-null="true"/>
+  </many-to-one>
+  <property name="protocolo" type="java.lang.String">
+   <column length="30" name="protocolo" not-null="false"/>
+  </property>
+  <property name="motivoRevogacao" type="java.lang.String">
+   <column length="3000" name="motivo_revogacao" not-null="false"/>
+  </property>
+  <property name="nrOficio" type="java.lang.Integer">
+   <column name="nr_oficio" not-null="false"/>
+  </property>
+  <property name="dataRegistro" type="date">
+   <column name="data_registro" not-null="false"/>
+  </property>
+  <property name="dtInicioVigencia" type="date">
+   <column name="dt_inicio_vigencia" not-null="false"/>
+  </property>
+  <property name="dtFimVigencia" type="date">
+   <column name="dt_fim_vigencia" not-null="false"/>
+  </property>
+  <property name="tsInclusao" type="timestamp">
+   <column length="8" name="ts_inclusao" not-null="true"/>
+  </property>
+  <property name="tsAtualizacao" type="timestamp">
+   <column length="8" name="ts_atualizacao"/>
+  </property>
+  <property name="tsExclusao" type="timestamp">
+   <column length="8" name="ts_exclusao"/>
+  </property>
+  <property name="cpfResponsavelInclusao" type="java.lang.String">
+   <column name="cpf_responsavel_inclusao" not-null="true"/>
+  </property>
+  <property name="cpfResponsavelAlteracao" type="java.lang.String">
+   <column name="cpf_responsavel_alteracao"/>
+  </property>
+  <property name="cpfResponsavelExclusao" type="java.lang.String">
+   <column name="cpf_responsavel_exclusao"/>
+  </property>
+  <property name="textoDocInformacao" type="java.lang.String">
+   <column length="255" name="texto_doc_inf"/>
+  </property>
+  <set inverse="true" name="listaAssinaturaTransferencia" sort="unsorted">
+   <key>
+    <column name="cod_transferencia" not-null="true"/>
+   </key>
+   <one-to-many class="gov.pr.celepar.abi.pojo.AssinaturaTransferencia"/>
+  </set>
+  <set inverse="true" name="listaAssinaturaDocTransferencia" sort="unsorted">
+   <key>
+    <column name="cod_transferencia" not-null="true"/>
+   </key>
+   <one-to-many class="gov.pr.celepar.abi.pojo.AssinaturaDocTransferencia"/>
+  </set>
+  <set inverse="true" name="listaItemTransferencia" sort="unsorted">
+   <key>
+    <column name="cod_transferencia" not-null="true"/>
+   </key>
+   <one-to-many class="gov.pr.celepar.abi.pojo.ItemTransferencia"/>
+  </set>
+ </class>
+</hibernate-mapping>

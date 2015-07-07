@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+<!-- 
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+    </global>
+
+    <formset>
+
+        <!-- An example form 
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+        end example-->
+        
+
+        <form name="matriculaForm">
+            <field
+                property="nomeAluno"
+                depends="required,mask">
+                    <arg key="matriculaForm.nomeAluno"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[a-zãáâéêíóôõúçÃÁÂÉÊÍÓÔÕÚÇA-Z ]*$</var-value>
+                    </var>
+            </field>
+            
+            <field
+                property="dtNascAluno"
+                depends="required,date">
+                    <arg key="matriculaForm.dtNascAluno"/>
+			       <var>
+			          <var-name>datePatternStrict</var-name> 
+			          <var-value>dd/MM/yyyy</var-value> 
+			       </var>
+            </field>
+            <field
+                property="nomePaiAluno"
+                depends="mask">
+                    <arg key="matriculaForm.nomePaiAluno"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[a-zãáâéêíóôõúçÃÁÂÉÊÍÓÔÕÚÇA-Z ]*$</var-value>
+                    </var>
+            </field>
+            <field
+                property="nomeMaeAluno"
+                depends="required,mask">
+                    <arg key="matriculaForm.nomeMaeAluno"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[a-zãáâéêíóôõúçÃÁÂÉÊÍÓÔÕÚÇA-Z ]*$</var-value>
+                    </var>
+            </field>
+            <field
+                property="cpfAluno"
+                depends="required, cpf">
+                    <arg key="matriculaForm.cpfAluno"/>
+            </field>
+            <field
+                property="uf"
+                depends="required,mask">
+                    <arg key="matriculaForm.uf"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[A-Z][A-Z]*$</var-value>
+                    </var>
+            </field>
+            <field
+                property="idLocalidade"
+                depends="required,mask">
+                    <arg key="matriculaForm.idLocalidade"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[1-9][0-9]*$</var-value>
+                    </var>
+            </field>
+            <field
+                property="cep"
+                depends="required">
+                    <arg key="matriculaForm.cep"/>
+            </field>
+            <field
+                property="logradouro"
+                depends="required">
+                    <arg key="matriculaForm.logradouro"/>
+            </field>
+            <field
+                property="numero"
+                depends="required">
+                    <arg key="matriculaForm.numero"/>
+            </field>
+        </form>
+
+    </formset>
+
+</form-validation>

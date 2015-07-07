@@ -1,0 +1,13 @@
+submenu0 = new dTree('submenu0');
+submenu0.add(0,-1,'','');
+submenu0.add(1,0,'Cadastro de Alunos','itens/item1.html');
+submenu0.add(2,0,'Cadastro de professores','itens/item2.html');
+submenu0.add(3,0,'Cadastro de escolas','itens/item3.html');
+submenu0.add(4,1,'Disciplinas','itens/item1/item1.html');
+submenu0.add(5,1,'Matrículas','itens/item1/item2.html');
+submenu0.add(6,2,'Edital','itens/item2/item1.html');
+submenu0.add(7,2,'Salas','itens/item2/item2.html');
+submenu0.add(8,3,'Ensino fundamental','itens/item3/item1.html');
+submenu0.add(9,3,'Ensino médio','itens/item3/item2.html');
+submenu0.add(10,3,'Ensino superior','itens/item3/item3.html');
+document.write(submenu0);

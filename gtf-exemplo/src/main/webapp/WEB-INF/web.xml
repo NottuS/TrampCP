@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<!-- Decritor Required -->
+	<description>GTF-Exemplo</description>
+   
+    <!-- Config Sistema de Seguranca -->
+   	<!-- <filter>
+    	<filter-name>SegurancaFilter</filter-name>
+    	<filter-class>gov.pr.celepar.sentinela.client.SegurancaFilter</filter-class>
+  	</filter>
+  	<filter-mapping>
+    	<filter-name>SegurancaFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
+  	</filter-mapping> -->
+  
+   <!--  Pagina Inicial -->
+   <welcome-file-list>
+		<welcome-file>/login.do</welcome-file>
+   </welcome-file-list>
+
+   <!-- Struts Action Servlet Configuration -->
+   <servlet>
+      <servlet-name>action</servlet-name>
+      <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+      <init-param>
+         <param-name>config</param-name>
+         <param-value>/WEB-INF/struts-config.xml</param-value>
+      </init-param>
+      <init-param>
+         <param-name>debug</param-name>
+         <param-value>3</param-value>
+      </init-param>
+      <init-param>
+         <param-name>detail</param-name>
+         <param-value>3</param-value>
+      </init-param>
+      <load-on-startup>0</load-on-startup>
+   </servlet>       
+   <servlet-mapping>
+      <servlet-name>action</servlet-name>
+      <url-pattern>*.do</url-pattern>
+   </servlet-mapping>
+   
+   <!-- Quartz -->
+   <servlet>
+      <servlet-name>QuartzInitializer</servlet-name>
+      <!-- <display-name>Quartz Initializer Servlet</display-name>-->
+      <servlet-class>org.quartz.ee.servlet.QuartzInitializerServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+   </servlet>   
+   
+   <!-- The Error Page 404 -->
+   <error-page>
+      <error-code>404</error-code>
+      <location>/pages/ctlr_erro.jsp</location>
+   </error-page>
+   
+   <!-- The Error Page 403 -->
+   <error-page>
+      <error-code>403</error-code>
+      <location>/pages/ctlr_erro.jsp</location>
+   </error-page>
+   
+   <!-- The Error Page 500 -->
+   <error-page>
+      <error-code>500</error-code>
+      <location>/pages/ctlr_erro.jsp</location>
+   </error-page>
+	
+</web-app>

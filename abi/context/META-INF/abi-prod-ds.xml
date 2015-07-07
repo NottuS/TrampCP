@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===================================================================== -->
+<!-- -->
+<!-- Os arquivos de DataSource servem para configurar, no servidor de -->
+<!-- aplicações, um serviço de poll de conexões com uma fonte de dados. -->
+<!-- O nome do arquivo deve seguir o seguinte padrão para que possa ser -->
+<!-- publicado corretamente no servidor de aplicações correspondente: -->
+<!-- <nome_aplicação>-desenv-ds.xml -->
+<!-- <nome_aplicação>-homolog-ds.xml -->
+<!-- <nome_aplicação>-prod-ds.xml -->
+<!-- -->
+<!-- ===================================================================== -->
+
+<datasources>
+	<local-tx-datasource>
+		<jndi-name>jdbc/abiDS</jndi-name> <!-- Nome do serviço que ficará disponível no servidor de aplicações -->
+		<connection-url>jdbc:postgresql://pgprod04.celepar.parana:5432/abi</connection-url> <!-- Endereço da usa fonte de dados -->
+		<driver-class>org.postgresql.Driver</driver-class> <!-- Driver utilizado para conexão com sua fonte de dados -->
+		<user-name>sa_abi</user-name> <!-- Nome de usuário para acesso a sua fonte de dados -->
+		<password>das76d576a</password> <!-- Senha para acesso a sua fonte de dados -->
+		<min-pool-size>1</min-pool-size> <!-- Quantidade mínima de conexões que serão abertas para sua fonte de dados -->
+		<max-pool-size>5</max-pool-size> <!-- Quantidade máxima de conexões que serão abertas para sua fonte de dados -->
+		<check-valid-connection-sql>SELECT 1+1</check-valid-connection-sql> <!-- Verifica se a conexão com sua fonte de dados esta respondendo corretamente -->
+	</local-tx-datasource>
+</datasources>
+
+<!-- ======================================================================== -->
+<!-- Os tags <min-pool-size> e <max-pool-size> no ambiente de desenvolvimento -->
+<!-- e homologação devem conter valores baixos para não sobrecarregar o banco -->
+<!-- de dados sem necessidade. No ambiente de produção é necessário entrar 
+	em -->
+<!-- contato com o DBA para definir o valores mais adequados. -->
+<!-- ======================================================================== -->

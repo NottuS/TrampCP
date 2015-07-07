@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    								"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="gov.pr.celepar.framework.pojo.Escola" table="tb_escola">
+    <id column="id_escola" name="idEscola" type="java.lang.Integer">
+      <generator class="assigned"/>
+    </id>
+    <property column="nome_escola" length="64" name="nomeEscola" type="java.lang.String" />
+    <!-- Associations -->
+    <!-- bi-directional many-to-one association to TbEndereco -->
+    <many-to-one class="gov.pr.celepar.framework.pojo.Endereco"
+      name="endereco" not-null="true" lazy="false">
+      <column name="endereco"/>
+    </many-to-one>
+    <!-- bi-directional one-to-many association to TbMatricula -->
+    <set cascade="none" inverse="true" lazy="true" name="matriculas">
+      <key>
+        <column name="escola"/>
+      </key>
+      <one-to-many class="gov.pr.celepar.framework.pojo.Matricula"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Nome do Sistema</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link href="../../css/default.css" rel="stylesheet" type="text/css">
+	<link href="../../css/screen.css" rel="stylesheet" type="text/css">
+	<script language="JavaScript" type="text/JavaScript" src="../../js/windowopen.js"></script>
+	
+</head>
+<body>
+<script language="javascript" src="../../js/maisinfo.js"></script>
+<div id="cabecalho">
+	<table cellspacing="0">
+		<tr>
+			<td width="148"><a href="inicial.jsp"><img src="../../images/logo_sistema_cabecalho.jpg" width="148" height="27" border="0"></a></td>
+			<td class="cabec_background">&nbsp;</td>
+			<td width="62"><a href="http://www.celepar.br/" target="_blank"><img src="../../images/logo_cliente_cabecalho.png" width="62" height="26" border="0"></a></td>
+		</tr>
+	</table>
+</div>
+<div id="menu">
+
+	<SCRIPT language="JavaScript1.2" src="../../js/coolmenus4.js"></SCRIPT>
+	<SCRIPT language="JavaScript1.2" src="../../js/config_menu.js"></SCRIPT>
+	<SCRIPT>
+		oCMenu.makeMenu('top0','','Matrícula','','')
+			oCMenu.makeMenu('sub002','top0','Pesquisar Alunos','matricula/list_alunos.html')
+			oCMenu.makeMenu('sub003','top0','Relatório Online','#')
+			oCMenu.makeMenu('sub004','top0','Relatório Batch','#')
+		oCMenu.makeMenu('top1','','Sair','','')
+			oCMenu.makeMenu('sub005','top1','Sair do Sistema','login/login.html')
+		
+		//Leave this line - it constructs the menu
+		oCMenu.construct()			
+	</SCRIPT>
+</div>
+<div id="barra_icones">
+  <a href="#"><img src="../../images/barra_icones/icon_novo.png" border="0" alt="teste icone 1"></a>
+  <a href="#"><img src="../../images/barra_icones/icon_abrir.png" border="0" alt="teste icone 2"></a>
+  <a href="#"><img src="../../images/barra_icones/icon_chaves.png" border="0" alt="teste icone 3"></a>
+
+  <a href="#"><img src="../../images/barra_icones/icon_conexao.png" border="0" alt="teste icone 4"></a>
+  <a href="#"><img src="../../images/barra_icones/icon_lupa_papel.png" border="0" alt="teste icone 5"></a>
+  <a href="#"><img src="../../images/barra_icones/icon_pc.png" border="0" alt="teste icone 6"></a>
+  <a href="#"><img src="../../images/barra_icones/icon_print.png" border="0" alt="teste icone 7"></a>
+</div>
+
+<div id="barra_acao_top">
+<div id="barra_localizacao">Matrícula > Pesquisar Alunos</div>
+	<table align="right" cellspacing="0">
+		<tr>
+			<td><a href="javascript:history.back();">voltar</a></td><td><a href="javascript:history.back();"><img src="../../images/icon_voltar.png" border="0"></a></td>
+			<td>&nbsp;</td>
+			<td><a href="#" onClick="MM_openBrWindow('../../help/indice.jsp','help','scrollbars=yes,resizable=yes,width=500,height=500')">ajuda</a></td><td><a href="#" onClick="MM_openBrWindow('../../help/indice.jsp','help','scrollbars=yes,resizable=yes,width=500,height=500')"><img src="../../images/icon_ajuda.png" border="0"></a></td>
+		</tr>
+	</table>
+</div>
+<div id="conteudo">
+<div align="center">
+	<h1>Incluir Aluno</h1>
+	<form name="form1" action="#" method="Post" onSubmit="validaForm(this)">
+    <div id="conteudo_corpo">
+	<table class="form_tabela" cellspacing="0"  width="43%">
+		<tr>
+			<td class="form_label">*Nome</td>
+			<td><input type="text" size="50" maxlength="128"></td>
+		</tr>
+		<tr>
+			<td class="form_label">*Data Nascimento</td>
+			<td>
+				<input type="text" size="10" maxlength="10">
+				<img src="../../images/icon_calendario.png" width="16" height="15" />
+				Ex: 31/01/2006
+			    <img src="../../images/icon_info.png" onMouseOver="maisinfo('Insira a data de nascimento no formato dd/mm/aaaa');" onMouseOut="menosinfo();"> 
+			</td>
+		</tr>
+		<tr>
+			<td class="form_label">Nome do Pai</td>
+			<td><input type="text" size="50" maxlength="128"></td>
+		</tr>
+		<tr>
+			<td class="form_label">*Nome da Mãe</td>
+			<td><input type="text" size="50" maxlength="128"></td>
+		</tr>
+		<tr>
+			<td class="form_label">*CPF</td>
+			<td><input type="text" size="15" maxlength="15"></td>
+		</tr>
+	</table>
+
+  </div>
+  <div id="conteudo_corpo">
+  
+  <table class="form_tabela" cellspacing="0" width="50%">    
+	<tr>
+		<td class="form_label">*UF</td>
+		<td><select></select></td>
+	</tr>	
+	<tr>
+		<td class="form_label">*Cidade</td>
+		<td><select></select></td>
+	</tr>
+	<tr>
+		<td class="form_label">*CEP</td>
+		<td><input type="text" size="9" maxlength="9"></td>
+	</tr>
+	<tr>
+		<td class="form_label">*Logradouro</td>
+		<td><input type="text" size="50" maxlength="128"></td>
+	</tr>
+	<tr>
+		<td class="form_label">*Número</td>
+		<td><input type="text" size="16" maxlength="16"></td>
+	</tr>
+	<tr>
+		<td class="form_label">Complemento</td>
+		<td><input type="text" size="16" maxlength="32"></td>
+	</tr>
+	<tr>
+		<td class="form_label">Bairro</td>
+		<td><input type="text" size="50" maxlength="64"></td>
+	</tr>
+  </table>
+  	<hr>
+  	<p class="obs_obrigatorio">(*) Campo de preenchimento obrigatório.</p>
+ 	<div align="center">
+		<input type="button" class="form_botao" value="Incluir">
+		<a href="list_alunos.html"><input type="button" class="form_botao" value="Cancelar"></a>
+	</div>
+	</form>
+  </div>
+  
+</div>
+
+<div id="barra_acao_bottom">
+	<table align="right" cellspacing="0">
+		<tr>
+			<td><a href="javascript: window.scrollTo(0, 0); void 0">topo</a></td><td><a href="javascript: window.scrollTo(0, 0); void 0"><img src="../../images/icon_topo.png" border="0"></a></td>
+			<td>&nbsp;</td>
+			<td><a href="#" onClick="MM_openBrWindow('../../help/indice.jsp','help','scrollbars=yes,resizable=yes,width=500,height=500')">ajuda</a></td><td><a href="#" onClick="MM_openBrWindow('../../help/indice.jsp','help','scrollbars=yes,resizable=yes,width=500,height=500')"><img src="../../images/icon_ajuda.png" border="0"></a></td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

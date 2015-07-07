@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/06/2009 10:10:46 by Hibernate Tools 3.2.0.CR1 -->
+<hibernate-mapping>
+  <class name="gov.pr.celepar.abi.pojo.ParametroVistoriaDominio" schema="public" table="tb_parametro_vistoria_dominio">
+    <id name="codParametroVistoriaDominio" type="java.lang.Integer">
+      <meta attribute="use-in-equals">true</meta>
+      <column name="cod_parametro_vistoria_dominio"/>
+      <generator class="sequence">
+      	<param name="sequence">tb_parametro_vistoria_dominio_cod_parametro_vistoria_domini_seq</param>
+      </generator>
+    </id>
+    <property name="descricao" type="java.lang.String">
+      <column name="descricao"/>
+    </property>
+    <many-to-one class="gov.pr.celepar.abi.pojo.ParametroVistoria"
+      fetch="select" name="parametroVistoria" lazy="false">
+      <column name="cod_parametro_vistoria" not-null="true"/>
+    </many-to-one>
+  </class>
+</hibernate-mapping>

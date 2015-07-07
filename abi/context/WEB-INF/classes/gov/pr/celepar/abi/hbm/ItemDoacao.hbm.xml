@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <class name="gov.pr.celepar.abi.pojo.ItemDoacao" schema="public" table="tb_item_doacao">
+  <id name="codItemDoacao" type="java.lang.Integer">
+   <meta attribute="use-in-equals">true</meta>
+   <column name="cod_item_doacao"/>
+   <generator class="sequence">
+    <param name="sequence">tb_item_doacao_cod_item_doacao_seq</param>
+   </generator>
+  </id>
+  <many-to-one class="gov.pr.celepar.abi.pojo.Doacao" fetch="select" name="doacao">
+   <column name="cod_doacao" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="gov.pr.celepar.abi.pojo.Edificacao" fetch="select" name="edificacao">
+   <column name="cod_edificacao"/>
+  </many-to-one>
+  <property name="utilizacao" type="java.lang.String">
+   <column length="3000" name="utilizacao" not-null="true"/>
+  </property>
+  <property name="observacao" type="java.lang.String">
+   <column length="3000" name="observacao" not-null="false"/>
+  </property>
+  <property name="doacaoMetros" type="big_decimal">
+   <column name="doacao_metros" not-null="false"/>
+  </property>
+  <property name="doacaoPercentual" type="big_decimal">
+   <column name="doacao_percentual" not-null="false"/>
+  </property>
+  <property name="somenteTerreno" type="java.lang.Boolean">
+   <column name="somente_terreno" not-null="false"/>
+  </property>
+  <property name="tipo" type="java.lang.Integer">
+   <column name="tipo" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>

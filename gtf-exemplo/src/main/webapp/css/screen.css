@@ -1,0 +1,28 @@
+.login_corpo {
+	height:156px;
+	background-image: url(../images/back_login.jpg);
+	display: block;
+	position:relative;
+	top:137px;
+}
+.login_logo_sistema {
+	position:absolute;
+	left:50%;
+	margin-left: -245px;
+	top: 103px;
+}
+.login_logo_cliente {
+	position:absolute;
+	left:50%;
+	margin-left: 180px;
+	top: 71px;
+}
+#cabecalho table {
+	width:100%;
+	background-image: url(../images/back_cabecalho.jpg);
+	background-repeat:repeat-x;
+	background-position:bottom;
+}
+#cabecalho td {
+	padding:0px;
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    								"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="gov.pr.celepar.framework.pojo.Aluno" table="tb_aluno">
+    <id column="id_aluno" name="idAluno" type="java.lang.Integer">
+      <generator class="sequence">
+      		<param name="sequence">tb_aluno_id_aluno_seq</param>
+      </generator>
+    </id>
+    <property column="nome_aluno" length="128" name="nomeAluno" not-null="true" type="java.lang.String" />
+    <property column="nascimento_aluno" name="nascimentoAluno" not-null="true" type="java.sql.Date" />
+    <property column="pai_aluno" length="128" name="paiAluno" type="java.lang.String" />
+    <property column="mae_aluno" length="128" name="maeAluno" not-null="true" type="java.lang.String" />
+    <property column="cpf_aluno" length="15" name="cpfAluno"  not-null="true" type="java.lang.String" />
+    <!-- Associations -->
+    <!-- bi-directional one-to-many association to TbMatricula -->
+    <set cascade="delete" inverse="true" lazy="false" name="matriculas">
+      <key>
+        <column name="aluno"/>
+      </key>
+      <one-to-many class="gov.pr.celepar.framework.pojo.Matricula"/>
+    </set>
+    <!-- bi-directional many-to-one association to TbEndereco -->
+    <many-to-one class="gov.pr.celepar.framework.pojo.Endereco" name="endereco" not-null="true" cascade="save-update" lazy="false">
+      <column name="endereco"/>
+    </many-to-one>
+  </class>
+  
+  <sql-query name="busca_aluno">
+    <return alias="aluno" class="gov.pr.celepar.framework.pojo.Aluno"/>
+    SELECT {aluno.*} FROM tb_aluno {aluno} WHERE aluno.nome_aluno LIKE :arg
+  </sql-query>
+</hibernate-mapping>

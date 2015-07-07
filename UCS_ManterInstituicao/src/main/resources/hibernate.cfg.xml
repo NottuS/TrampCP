@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+    
+    	<!-- Conexão com banco via JNDI -->
+		<property name="hibernate.connection.autocommit">true</property>
+		<property name="hibernate.connection.datasource">java:jdbc/UCS_ManterInstituicaoDS</property>
+		
+		<!-- Conexão para uso do JUnit -->
+		 
+ 	 
+        <!-- properties -->
+	    <property name="show_sql">true</property>
+	    <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+		<!-- Annotations Mapping -->
+		<mapping class="gov.pr.celepar.ucs_manterinstituicao.pojo.Instituicao"/>
+		<mapping class="gov.pr.celepar.ucs_manterinstituicao.pojo.Telefone"/>
+		<mapping class="gov.pr.celepar.ucs_manterinstituicao.pojo.AreaInteresse"/>
+		<mapping class="gov.pr.celepar.ucs_manterinstituicao.pojo.NaturezaJuridica"/>		
+    </session-factory>
+
+</hibernate-configuration>

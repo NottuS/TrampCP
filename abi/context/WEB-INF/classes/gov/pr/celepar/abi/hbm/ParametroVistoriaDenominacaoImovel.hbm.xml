@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/09/2008 14:06:14 by Hibernate Tools 3.2.0.CR1 -->
+<hibernate-mapping>
+  <class name="gov.pr.celepar.abi.pojo.ParametroVistoriaDenominacaoImovel"
+    schema="public" table="tb_parametro_vistoria_denominacao_imovel">
+	<composite-id>
+        <key-many-to-one name="denominacaoImovel" 
+        				 class="gov.pr.celepar.abi.pojo.DenominacaoImovel" 
+        				 column="cod_denominacao_imovel" lazy="false"/>
+        				 
+		<key-many-to-one name="parametroVistoria" 
+        				 class="gov.pr.celepar.abi.pojo.ParametroVistoria" 
+        				 column="cod_parametro_vistoria" lazy="false"/>
+	</composite-id>
+  </class>
+</hibernate-mapping>

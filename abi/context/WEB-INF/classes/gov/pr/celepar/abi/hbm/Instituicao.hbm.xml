@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 24/12/2009 11:14:20 by Hibernate Tools 3.2.0.CR1 -->
+<hibernate-mapping>
+  <class name="gov.pr.celepar.abi.pojo.Instituicao" schema="public" table="tb_instituicao">
+    <id name="codInstituicao" type="java.lang.Integer">
+      <meta attribute="use-in-equals">true</meta>
+      <column name="cod_instituicao"/>
+      <generator class="sequence">
+      	<param name="sequence">tb_instituicao_cod_instituicao_seq</param>
+      </generator>
+    </id>
+    <property name="sigla" type="java.lang.String">
+      <column length="10" name="sigla" not-null="true"/>
+    </property>
+    <property name="cpfResponsavelCriacao" type="java.lang.String">
+      <column name="cpf_responsavel_criacao" not-null="true"/>
+    </property>
+    <property name="cpfResponsavelAtualizacao" type="java.lang.String">
+      <column name="cpf_responsavel_atualizacao" />
+    </property>
+    <property name="cep" type="java.lang.String">
+      <column length="8" name="cep" sql-type="char(8)" not-null="true"/>
+    </property>
+    <property name="uf" type="java.lang.String">
+      <column length="2" name="uf" sql-type="char(2)" not-null="true"/>
+    </property>
+    <property name="municipio" type="java.lang.String">
+      <column length="100" name="municipio" not-null="true"/>
+    </property>
+    <property name="codMunicipio" type="java.lang.Integer">
+      <column name="cod_municipio" not-null="true"/>
+    </property>
+    <property name="logradouro" type="java.lang.String">
+      <column length="100" name="logradouro" />
+    </property>
+    <property name="numero" type="java.lang.String" >
+      <column length="15" name="numero"/>
+    </property>
+    <property name="bairroDistrito" type="java.lang.String">
+      <column length="60" name="bairro_distrito" />
+    </property>
+    <property name="complemento" type="java.lang.String">
+      <column length="60" name="complemento"/>
+    </property>
+    <property name="contato" type="java.lang.String">
+      <column length="100" name="contato"/>
+    </property>
+    <property name="telefoneDdd" type="java.lang.String">
+      <column length="2"  name="telefone_ddd"/>
+    </property>
+    <property name="telefoneNumero" type="java.lang.String">
+      <column length="8" name="telefone_numero"/>
+    </property>
+    <property name="tsInclusao" type="timestamp">
+      <column length="8" name="ts_inclusao" not-null="true"/>
+    </property>
+    <property name="tsAtualizacao" type="timestamp">
+      <column length="8" name="ts_atualizacao"/>
+    </property>
+    <property name="descricaoRelatorio" type="java.lang.String">
+      <column length="500" name="descricao_relatorio" not-null="true"/>
+    </property>
+    <property name="logoInstituicao" type="java.lang.String">
+      <column length="100" name="logo_instituicao" not-null="true"/>
+    </property>
+    <property name="email" type="java.lang.String">
+      <column length="150" name="email"/>
+    </property>
+    <property name="nome" type="java.lang.String">
+      <column length="200" name="nome" not-null="true"/>
+    </property>
+    <set inverse="true" name="listaBemImovel" sort="unsorted">
+   		<key>
+    		<column name="cod_instituicao" />
+   		</key>
+   		<one-to-many class="gov.pr.celepar.abi.pojo.BemImovel"/>
+  	</set>
+    <set inverse="true" name="listaCargoAssinatura" sort="unsorted">
+   		<key>
+    		<column name="cod_instituicao" />
+   		</key>
+   		<one-to-many class="gov.pr.celepar.abi.pojo.CargoAssinatura"/>
+  	</set>
+  	<set inverse="true" name="listaUsuario" sort="unsorted">
+   		<key>
+    		<column name="cod_instituicao" />
+   		</key>
+   		<one-to-many class="gov.pr.celepar.abi.pojo.Usuario"/>
+  	</set>
+  	<set inverse="true" name="listaOrgao" sort="unsorted">
+   		<key>
+    		<column name="cod_instituicao" />
+   		</key>
+   		<one-to-many class="gov.pr.celepar.abi.pojo.Orgao"/>
+  	</set>
+  	<set inverse="true" name="listaVistoriador" sort="unsorted">
+   		<key>
+    		<column name="cod_instituicao" />
+   		</key>
+   		<one-to-many class="gov.pr.celepar.abi.pojo.Vistoriador"/>
+  	</set>
+  	<set inverse="true" name="listaDoacao" sort="unsorted">
+   		<key>
+    		<column name="cod_instituicao" />
+   		</key>
+   		<one-to-many class="gov.pr.celepar.abi.pojo.Doacao"/>
+  	</set>
+  	<set inverse="true" name="listaTransferencia" sort="unsorted">
+   		<key>
+    		<column name="cod_instituicao" />
+   		</key>
+   		<one-to-many class="gov.pr.celepar.abi.pojo.Transferencia"/>
+  	</set>
+  	<set inverse="true" name="listaCessaoDeUso" sort="unsorted">
+   		<key>
+    		<column name="cod_instituicao" />
+   		</key>
+   		<one-to-many class="gov.pr.celepar.abi.pojo.CessaoDeUso"/>
+  	</set>
+    <set inverse="true" name="listaAssinatura" sort="unsorted">
+   		<key>
+    		<column name="cod_instituicao" />
+   		</key>
+   		<one-to-many class="gov.pr.celepar.abi.pojo.Assinatura"/>
+  	</set>
+  	<set inverse="true" name="listaParametroVistoria" sort="unsorted">
+   		<key>
+    		<column name="cod_instituicao" />
+   		</key>
+   		<one-to-many class="gov.pr.celepar.abi.pojo.ParametroVistoria"/>
+  	</set>
+  </class>
+</hibernate-mapping>

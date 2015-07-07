@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    								"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="gov.pr.celepar.framework.pojo.Serie" table="tb_serie">
+    <id column="id_serie" name="idSerie" type="java.lang.Integer">
+      <generator class="assigned"/>
+    </id>
+    <property column="nome_serie" length="128" name="nomeSerie" not-null="true" type="java.lang.String" />
+    <property column="tipo_serie" length="1" name="tipoSerie" not-null="true" type="java.lang.String" />
+    <!-- Associations -->
+    <!-- bi-directional one-to-many association to TbMatricula -->
+    <set cascade="none" inverse="true" lazy="true" name="matriculas">
+      <key>
+        <column name="serie"/>
+      </key>
+      <one-to-many class="gov.pr.celepar.framework.pojo.Matricula"/>
+    </set>
+  </class>
+</hibernate-mapping>
