@@ -69,19 +69,30 @@ public class Instituicao implements Serializable {
     private Date dataCriacao;
     private Set<AreaInteresse> areaInteresses = new HashSet<AreaInteresse>(0);
     private Set<Telefone> instituicaoTelefones = new HashSet<Telefone>(0);
+    private Set<Colaborador> colaboradores = new HashSet<Colaborador>(0);
+    
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "instituicao", cascade = CascadeType.ALL)
+    public Set<Colaborador> getColaboradores() {
+		return colaboradores;
+	}
 
-    public Instituicao() {
+	public void setColaboradores(Set<Colaborador> colaboradores) {
+		this.colaboradores = colaboradores;
+	}
+
+	public Instituicao() {
     }
 
     public Instituicao(Integer codInstituicao,
         NaturezaJuridica naturezaJuridica, String cnpj, String razaoSocial,
-        Integer porte, Date dataCriacao) {
+        Integer porte, Date dataCriacao, Set<Colaborador> colaboradores) {
         this.codInstituicao = codInstituicao;
         this.naturezaJuridica = naturezaJuridica;
         this.cnpj = cnpj;
         this.razaoSocial = razaoSocial;
         this.porte = porte;
         this.dataCriacao = dataCriacao;
+        this.colaboradores = colaboradores;
     }
 
     public Instituicao(Integer codInstituicao,

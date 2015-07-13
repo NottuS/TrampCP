@@ -45,4 +45,16 @@
 	<definition name="viewInstituicaoDef" extends="applicationDef">
         	<put name="body" value="/pages/manterInstituicao/view_instituicao.jsp" />
     </definition>
+    
+        <definition name="conColaboradorDef" extends="applicationDef">
+        	<put name="body" value="/pages/manterColaborador/con_colaborador.jsp" />
+    </definition>
+    
+     <definition name="editColaboradorDef" extends="applicationDef">
+        	<put name="body" value="/pages/manterColaborador/edit_colaborador.jsp" />
+    </definition>
+
+	<definition name="viewColaboradorDef" extends="applicationDef">
+        	<put name="body" value="/pages/manterColaborador/view_colaborador.jsp" />
+    </definition>
 </tiles-definitions>

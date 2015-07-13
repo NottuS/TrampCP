@@ -151,6 +151,7 @@
 		var cnpjSemMascara = form.cnpj.value;
 		cnpjSemMascara = cnpjSemMascara.replace(/[^0-9]+/g, "");
 		var ehUnico = false;
+		
 		$.ajax({
             type: "GET",
             url: "/UCS_ManterInstituicao/manterInstituicao.do?action=validateCNPJ",
@@ -159,6 +160,7 @@
             async: false,
             timeout: 3000,
             success: function(response){
+            	console.log(response);
                 // we have the response
                //alert(response);
                if(eval(response) == true){

@@ -15,6 +15,7 @@ package gov.pr.celepar.ucs_manterinstituicao.dao.factory;
 import gov.pr.celepar.ucs_manterinstituicao.dao.dao.InstituicaoDAO;
 import gov.pr.celepar.ucs_manterinstituicao.dao.dao.NaturezaJuridicaDAO;
 import gov.pr.celepar.ucs_manterinstituicao.dao.implementation.AreaInteresseHibernateDAO;
+import gov.pr.celepar.ucs_manterinstituicao.dao.implementation.ColaboradorHibernateDAO;
 import gov.pr.celepar.ucs_manterinstituicao.dao.implementation.InstituicaoHibernateDAO;
 import gov.pr.celepar.ucs_manterinstituicao.dao.implementation.NaturezaJuridicaHibernateDAO;
 import gov.pr.celepar.ucs_manterinstituicao.dao.implementation.TelefoneHibernateDAO;
@@ -50,5 +51,9 @@ public class HibernateDAOFactory extends DAOFactory {
 	
 	public TelefoneHibernateDAO getTelefoneDAO() {
 		return new TelefoneHibernateDAO();
+	}
+	
+	public ColaboradorHibernateDAO getColaboradorDAO(){
+		return new ColaboradorHibernateDAO();
 	}
 }

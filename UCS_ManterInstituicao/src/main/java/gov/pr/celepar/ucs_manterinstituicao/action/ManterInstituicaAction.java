@@ -41,7 +41,7 @@ public class ManterInstituicaAction extends BaseDispatchAction {
 		//request.setAttribute("portes", Instituicao.Porte.values());
 		request.setAttribute("naturezaJuridicas", njs);
 		request.setAttribute("njSelected", "0");
-
+		
 		return mapping.findForward("pgListInstituicao");
     }
 	
@@ -136,12 +136,9 @@ public class ManterInstituicaAction extends BaseDispatchAction {
 			if(mif.getCodInstituicao() == null || mif.getCodInstituicao().isEmpty()){
 				mif.setActionType("incluir");
 				aiSelecionadas = new ArrayList<AreaInteresse>();
-				List<String> CNPJs = ManterInstituicaoFacade.listarCNPJ();
-				request.setAttribute("cnpjs", CNPJs);
 			} else if(mif.getActionType().compareTo("alterar")  == 0) {
 				instituicao = ManterInstituicaoFacade.obterInstituicao(Integer.parseInt(mif.getCodInstituicao()));
 				mif.preencheInstituicao(instituicao);
-				mif.setCnpj(new CNPJ().decorate(instituicao.getCnpj()));
 				aiSelecionadas = instituicao.getAreaInteresses();
 			}
 			List<NaturezaJuridica> njs = ManterInstituicaoFacade.listarNaturezaJuridica();

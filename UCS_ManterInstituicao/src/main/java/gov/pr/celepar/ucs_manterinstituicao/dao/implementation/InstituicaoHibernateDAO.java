@@ -215,4 +215,28 @@ public class InstituicaoHibernateDAO extends GenericHibernateDAO<Instituicao, Lo
 		}
 		return coll;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Collection<Instituicao> listar() throws ApplicationException {
+		Collection<Instituicao> coll = new ArrayList<Instituicao>();
+		try {
+			Session session = HibernateUtil.currentSession();
+			StringBuilder sql = new StringBuilder("from Instituicao");
+			Query q = session.createQuery(sql.toString());
+			coll = q.list();
+		} catch (Exception e) {
+			log.debug("Problema ao realizar a funcao: buscarQtdLista", e);
+			throw new ApplicationException("mensagem.erro.instituicao.listar", e);
+		} catch (Throwable t) {
+			t.printStackTrace();
+		} finally {
+			try {
+				HibernateUtil.closeSession();
+			}catch (Exception e) {
+				log.error("Problema ao tentar fechar conexao com o banco de dados: buscarQtdAlunos", e);
+			}
+		}
+		return coll;
+	}
 }

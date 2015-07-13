@@ -12,6 +12,7 @@
 
 	<form-beans>
 		<form-bean name="manterInstituicaoForm" type="gov.pr.celepar.ucs_manterinstituicao.form.ManterInstituicaoForm"/>
+		<form-bean name="manterColaboradorForm" type="gov.pr.celepar.ucs_manterinstituicao.form.ManterColaboradorForm"/>
 	</form-beans>
 
 
@@ -62,7 +63,20 @@
 			<forward name="pgListInstituicao" path="listInstituicaoDef"/>
 			<forward name="pgViewInstituicao" path="viewInstituicaoDef"/>        
 		</action>
+		
+		<action path="/manterColaborador"
+            type="gov.pr.celepar.ucs_manterinstituicao.action.ManterColaboradorAction"
+			name="manterColaboradorForm"
+            scope="request"
+            validate="false"
+            parameter="action">
+			<forward name="pgEditColaborador" path="editColaboradorDef"/>
+			<forward name="pgConColaborador" path="conColaboradorDef"/>
+			<forward name="pgViewColaborador" path="viewColaboradorDef"/>        
+		</action>
 	</action-mappings>
+	
+
 
 
 	<!--

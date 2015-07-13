@@ -15,6 +15,6 @@ package gov.pr.celepar.ucs_manterinstituicao.util;
 public class Dominios {
 	
 	/** Quantidade de objetos por página **/
-	public final static int QTD_PAGINA = 20;
+	public final static int QTD_PAGINA = 10;
 
 }

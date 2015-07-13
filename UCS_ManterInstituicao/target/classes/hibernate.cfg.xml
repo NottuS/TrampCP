@@ -22,7 +22,8 @@
 		<mapping class="gov.pr.celepar.ucs_manterinstituicao.pojo.Instituicao"/>
 		<mapping class="gov.pr.celepar.ucs_manterinstituicao.pojo.Telefone"/>
 		<mapping class="gov.pr.celepar.ucs_manterinstituicao.pojo.AreaInteresse"/>
-		<mapping class="gov.pr.celepar.ucs_manterinstituicao.pojo.NaturezaJuridica"/>		
+		<mapping class="gov.pr.celepar.ucs_manterinstituicao.pojo.NaturezaJuridica"/>
+		<mapping class="gov.pr.celepar.ucs_manterinstituicao.pojo.Colaborador"/>
     </session-factory>
 
 </hibernate-configuration>

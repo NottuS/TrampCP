@@ -181,7 +181,7 @@ public class ManterInstituicaoFacade {
 			} catch (Exception e) {
 				log.error("Problema ao tentar realizar rollback na transacao: incluirInstituicao", e);
 			}
-			throw new ApplicationException("mensagem.erro.instituicao.alterar", ex, ApplicationException.ICON_ERRO);						
+			throw new ApplicationException("mensagem.erro.instituicao.incluir", ex, ApplicationException.ICON_ERRO);						
 		}
 	}
 	
@@ -196,5 +196,18 @@ public class ManterInstituicaoFacade {
 			throw new ApplicationException("mensagem.erro.instituicao.listar", e);
 		}
 		return CNPJs;
+	}
+
+	public static Collection<Instituicao> listarInstituicao() throws ApplicationException {
+		HibernateDAOFactory hibernateFactory = (HibernateDAOFactory) DAOFactory.getDAOFactory(DAOFactory.HIBERNATE);
+		Collection<Instituicao>  instituicaos = new ArrayList<Instituicao>();
+		try {
+			instituicaos = hibernateFactory.getInstituicaoDAO().listar();
+		} catch(ApplicationException ae) {
+			throw ae;
+		}catch (Exception e) {
+			throw new ApplicationException("mensagem.erro.instituicao.listar", e);
+		}
+		return instituicaos;
 	}
 }
